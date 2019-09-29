@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+p {
+  font-family: 'Permanent Marker', cursive;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-family: 'Patua One', cursive;
+  font-family: 'Rokkitt', serif;
+  font-family: 'Kalam', cursive;
+  font-family: 'Luckiest Guy', cursive;
+
+}
