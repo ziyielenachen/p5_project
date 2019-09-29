@@ -13,7 +13,7 @@ function ini() {
 }
 function setup() {
   createCanvas(1437,833);
-  background('#0174DF');
+  background('#FFFDC4');
   //in the beginning there is only 6:
   x1 = out;
   y1 = out;
@@ -45,7 +45,7 @@ function setup() {
 }
 
 function store() {
-  let pinkk = color('#F6CEF5');
+  let pinkk = color('#2A9C9D');
   if (count < 6) {
   count = count + 1;
   draw(fill(pinkk),
@@ -59,9 +59,9 @@ function store() {
 }
 
 function draw() {
-  let pink = color('#F6CEEC');
+  let pink = color('#2A9C9D');
   let blue = color('#CEECF5');
-  let orange = color('#F7BE81');
+  let orange = color('#F98441');
   let green = color('#D0F5A9');
   let purple = color('#ECCEF5');
   let yellow = color('##F5F6CE');
