@@ -1,4 +1,4 @@
-var input1, input2, input3, input4, input5, input6, input, button;
+var input1, button;
 let height = 833;
 let width = 1437;
 var count = 0;
@@ -13,7 +13,7 @@ function ini() {
 }
 function setup() {
   createCanvas(1437,833);
-  background('#FFFDC4');
+  background('#fad8c5');
   //in the beginning there is only 6:
   x1 = out;
   y1 = out;
@@ -37,31 +37,36 @@ function setup() {
 
   button = createButton('Add Choice~');
   button.position(input.x + input.width, 485);
+  button.style('background-color', color('#ffaaa6'));
   button.mousePressed(store);
 
   button2 = createButton('Tell me what to do!');
   button2.position((1437-119)/2,370);
-  button2.mousePressed(roll);
-}
+  button2.style('background-color', color('#ffaaa6'));
+  button2.mousePressed(rolloutput);}
 
 function store() {
-  let pinkk = color('#2A9C9D');
+  let fwords = color('#84adab');
   if (count < 6) {
   count = count + 1;
-  draw(fill(pinkk),
+  draw(fill(fwords),
   textFont('Kalam'),textSize(22),
   text(count, (1437/2-353),(505 + count * 50)),
   noStroke(),fill(color('white')),
   rect((1437/2-330),(480 + count * 50) ,680,30),
   textFont('Kalam'),
-  fill(color('black')),
+  fill(color('#84adab')),
   text(input.value(), (1437/2-323),(504 + count * 50)));}
+  input = createInput();
+  input.size(700,30);
+  input.position((1437/2-355),480);
 }
 
 function draw() {
-  let pink = color('#2A9C9D');
+  let words = color('#84adab');
+  let dicee = color('#f1828d');
+
   let blue = color('#CEECF5');
-  let orange = color('#F98441');
   let green = color('#D0F5A9');
   let purple = color('#ECCEF5');
   let yellow = color('##F5F6CE');
@@ -69,9 +74,9 @@ function draw() {
 
   //dice
   noStroke();
-  fill(orange);
+  fill(dicee);
   rect((1437-141)/2,220,140,140,25);
-  fill('black');
+  fill(color('#fae9de'));
   //dot for 1:
   circle(x1,y1,30);
   //add dots to become 3:
@@ -87,40 +92,37 @@ function draw() {
 
   //guide to enter options:
   push();
-  fill(pink);
+  fill(words);
   textFont('Kalam');
   textSize(25);
   text('Enter your choices below and let me help you choose what to do!', (1437/2-353),470);
+  textFont('Kalam');
   pop();
 
   //title "this is how we roll"
   push();
-  fill(pink);
+  fill(words);
   textFont('Permanent Marker');
   textSize(62);
   text('This is how we rollll', (1437-650)/2, 100);
   pop();
 }
-function roll() {
-  output = floor(random(0.1, (count+1)/10)*10);
-  for (let i = 0; i < 100 ; i+=1) {
-    rand = floor(random(0.1, (count+1)/10)*10);
-    if (rand === 1) {
-      roll1();
-    }
-    else if (rand === 2) {
-      roll2();
-    }
-    else if (rand === 3) {
-      roll3();}
-    else if (rand === 4) {
-      roll4();}
-    else if (rand === 5) {
-      roll5();}
-    else if (rand === 6) {
-      roll6();}
+function delay(ms) {
+  var cur_d = new Date();
+  var cur_ticks = cur_d.getTime();
+  var ms_passed = 0;
+  while(ms_passed < ms) {
+  var d = new Date(); // Possible memory leak?
+  var ticks = d.getTime();
+  ms_passed = ticks - cur_ticks;
+  // d = null; // Prevent memory leak?
   }
+  }
+
+function rolloutput() {
+  output = floor(random(0.1, (count+1)/10)*10);
   if (output === 1) {
+    animate();
     roll1();}
   else if (output === 2) {
     roll2();}
@@ -134,7 +136,7 @@ function roll() {
     roll6();}
   let out = 'Congrats! Definitely choose # '+output+" !";
   draw(
-  fill(color('orange')),
+  fill(color('#f1828d')),
   textFont('Permanent Marker'),
   textSize(34),
   text(out, (1437-440)/2-40, 190));
