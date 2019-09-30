@@ -7,10 +7,7 @@ var output;
 let x1,y1,x31,y31,x32,y32,x41,y41,x42,y42,x61,y61,x62,y62;
 let out = 10000;
 
-
-function ini() {
-  draw();
-}
+var myFont = 'Kalam';
 function setup() {
   createCanvas(1437,833);
   background('#fad8c5');
@@ -43,7 +40,23 @@ function setup() {
   button2 = createButton('Tell me what to do!');
   button2.position((1437-119)/2,370);
   button2.style('background-color', color('#ffaaa6'));
-  button2.mousePressed(rolloutput);}
+  button2.mousePressed(rolloutput);
+
+  fill(color('#84adab'));
+  textFont(myFont);
+  textSize(25);
+  text('Enter your choices below and let me help you choose what to do!', (1437/2-353),470);
+
+  //title "this is how we roll"
+  push();
+  fill(color('#84adab'));
+  textFont('Permanent Marker');
+  textSize(62);
+  text('This is how we rollll', (1437-650)/2, 100);
+  pop();
+
+
+}
 
 function store() {
   let fwords = color('#84adab');
@@ -65,13 +78,7 @@ function store() {
 function draw() {
   let words = color('#84adab');
   let dicee = color('#f1828d');
-
-  let blue = color('#CEECF5');
-  let green = color('#D0F5A9');
-  let purple = color('#ECCEF5');
-  let yellow = color('##F5F6CE');
-  let w = color('#FFFFFF');
-
+ 
   //dice
   noStroke();
   fill(dicee);
@@ -89,35 +96,7 @@ function draw() {
   circle(x61,y61,30); //left middle
   circle(x62,y62,30); //right middle
 
-
-  //guide to enter options:
-  push();
-  fill(words);
-  textFont('Kalam');
-  textSize(25);
-  text('Enter your choices below and let me help you choose what to do!', (1437/2-353),470);
-  textFont('Kalam');
-  pop();
-
-  //title "this is how we roll"
-  push();
-  fill(words);
-  textFont('Permanent Marker');
-  textSize(62);
-  text('This is how we rollll', (1437-650)/2, 100);
-  pop();
 }
-function delay(ms) {
-  var cur_d = new Date();
-  var cur_ticks = cur_d.getTime();
-  var ms_passed = 0;
-  while(ms_passed < ms) {
-  var d = new Date(); // Possible memory leak?
-  var ticks = d.getTime();
-  ms_passed = ticks - cur_ticks;
-  // d = null; // Prevent memory leak?
-  }
-  }
 
 function rolloutput() {
   output = floor(random(0.1, (count+1)/10)*10);
